@@ -11,7 +11,6 @@
 
 <body class="bg-gray-100">
     <div id="app"></div>
-    <h1>Hello World</h1>
     @vite('resources/js/app.js')
 </body>
 

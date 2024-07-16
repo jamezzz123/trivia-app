@@ -1,7 +1,12 @@
-import './bootstrap';
+// import './bootstrap';
 
 // resources/js/app.js
 import { createApp } from 'vue';
-import Trivia from '../components/Trivia.vue';
+import App from './components/App.vue';
+import router from './router/index.js';
 
-createApp(Trivia).mount('#app');
+// import Trivia from './components/Trivia.vue';
+
+const app = createApp(App)
+app.use(router)
+app.mount('#app')
