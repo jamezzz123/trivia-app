@@ -14,23 +14,30 @@ class QuestionsTableSeeder extends Seeder
     public function run(): void
     {
         //
-        Question::create(
+        $questions = [
             [
                 'question' => 'What is the capital of France?',
-                'options' => json_encode(['Paris', 'London', 'Berlin']),
+                'options' => ['Paris', 'London', 'Berlin'],
                 'correct_option' => 0
             ],
             [
                 'question' => 'What is 2 + 2?',
-                'options' => json_encode(['3', '4', '5']),
+                'options' => ['3', '4', '5'],
                 'correct_option' => 1
             ],
             [
                 'question' => 'What is the largest planet?',
-                'options' => json_encode(['Earth', 'Jupiter', 'Mars']),
+                'options' => ['Earth', 'Jupiter', 'Mars'],
                 'correct_option' => 1
             ],
-            // Add more questions
-        );
+        ];
+        
+        foreach ($questions as $q) {
+            Question::create([
+                'question' => $q['question'],
+                'options' => json_encode($q['options']),
+                'correct_option' => $q['correct_option']
+            ]);
+        }
     }
 }

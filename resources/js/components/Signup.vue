@@ -53,7 +53,6 @@ export default {
         const router = useRouter();
 
         const handleSignup = async () => {
-            console.log(name.value, phoneNumber.value);
             try {
                 const response = await axios.post('/api/signup', {
                     name: name.value,

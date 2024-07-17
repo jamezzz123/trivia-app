@@ -16,7 +16,11 @@ class AuthController extends Controller
             'phone_number' => 'required|string',
         ]);
 
-        $user = User::firstOrCreate(['phone_number' => $request->phone_number]);
+        $user = User::where('phone_number', $request->phone_number)->first();
+
+        if (!$user) {
+            return response()->json(['message' => 'User not found'], 404);
+        }
 
         Auth::login($user);
 
